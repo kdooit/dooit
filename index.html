@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Geegle</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	.main{
+		display: flex;
+		justify-content: center;	
+		position: relative;
+		text-align: center;
+	}
+	
+	.geegle {
+		position: absolute;
+		top: 250px;
+	}
+	
+	.sc_bar{
+		display: inline-block;
+		margin-top: 400px;
+	    width: 400px;
+	    padding: 10px;
+	    border-radius: 15px;
+	    border: 1px solid #e2e2e2;
+	}
+	#btn_box {
+		position: absolute;
+		top: 450px;
+		width: 500px;
+	}
+	button {
+		height: 40px;
+		width: 150px;
+		opacity: 85%;
+		border: 1px solid lightgray;
+	}
+	
+	
+</style>
+</head>
+
+<body>
+	<script>
+		$(document).ready(function() {
+			$('.sc_bar').focus(function(){
+				$(this).val('');
+			});
+		});
+
+		function enterkey(e) {
+				if (e.keyCode == 13) {
+					var word = document.getElementById('sc').value;
+					location.href = "https://www.google.com/search?q=" + word;
+				}
+			}
+
+		$(function(){
+			$('#btn1').hover(function(){
+				$('#btn1').css('border-color', 'gray');
+			});
+			$('#btn2').hover(function(){
+				$('#btn2').css('border-color', 'gray');
+			});
+			$('#btn1').mouseleave(function(){
+				$('#btn1').css('border-color', 'lightgray');
+			});
+			$('#btn2').mouseleave(function(){
+				$('#btn2').css('border-color', 'lightgray');
+			});
+			$('#sc').keydown(function(){
+				let keyword = sc.value;		
+			});		
+			$('#btn1').click(function(){
+				var keyword = document.getElementById('sc').value;
+				location.href="https://www.google.com/search?q=" + keyword;
+			});
+		});
+			
+	</script>
+	
+	<div class = "main">
+	<div class = "geegle"><a href="https://www.google.com"><img src="images/geegle.png" width="75%" height="75%"></a></div>
+		<input type="text" class="sc_bar" id="sc" name='sc' placeholder="Geegle 검색 또는 URL 입력" onkeypress="enterkey(event)">
+	<div id="btn_box">
+        <a href="#"><button type="submit" id="btn1">Geegle 검색</button></a>
+        <a href="https://www.google.com/doodles"><button id="btn2">I'm feeling Lucky</button></a>
+      </div>
+	</div>
+	
+</body>
+
+</html>
